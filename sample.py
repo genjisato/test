@@ -1,10 +1,8 @@
-"""シンプルなCLIサンプルプログラム。
+"""シンプルなCLIサンプルプログラム。"""
 
-使い方:
-    python sample.py 太郎
-"""
+from __future__ import annotations
 
-import sys
+import argparse
 
 
 def greet(name: str) -> str:
@@ -12,13 +10,17 @@ def greet(name: str) -> str:
     return f"こんにちは、{name}さん！Pythonサンプルへようこそ。"
 
 
-def main() -> int:
-    if len(sys.argv) < 2:
-        print("使い方: python sample.py <名前>")
-        return 1
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="名前を受け取って挨拶を表示するサンプルCLIです。"
+    )
+    parser.add_argument("name", help="挨拶したい相手の名前")
+    return parser.parse_args()
 
-    name = sys.argv[1]
-    print(greet(name))
+
+def main() -> int:
+    args = parse_args()
+    print(greet(args.name))
     return 0
 
 
