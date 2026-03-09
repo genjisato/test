@@ -27,3 +27,10 @@ python3 sample.py --help
 ```text
 こんにちは、太郎さん！Pythonサンプルへようこそ。
 ```
+
+
+## テスト実行
+
+```bash
+python3 -m unittest -v
+```
