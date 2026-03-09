@@ -30,6 +30,17 @@ class SampleCliTests(unittest.TestCase):
         self.assertIn("usage:", result.stdout)
         self.assertIn("name", result.stdout)
 
+    def test_no_args_prints_help(self) -> None:
+        result = subprocess.run(
+            [sys.executable, "sample.py"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
+        self.assertEqual(result.returncode, 0)
+        self.assertIn("usage:", result.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

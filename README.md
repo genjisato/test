@@ -34,3 +34,13 @@ python3 sample.py --help
 ```bash
 python3 -m unittest -v
 ```
+
+
+## ヘルプが見れないとき
+
+- `sample.py` がある場所で実行してください（`cd /workspace/test`）。
+- どの場所からでも実行したい場合は、次を使ってください。
+
+```bash
+python3 /workspace/test/sample.py --help
+```
